@@ -7,12 +7,10 @@ const breve = n => n.replace(/\s*[–(].*$/, "");
 // ---- Pagina Estage: offerte prima di tutto ----
 function offerte() {
   const lista = $("#offerte"); if (!lista) return;
-  const cerca = $("#cerca"), studi = $("#studi"), chips = $("#chips"), esito = $("#esito");
+  const cerca = $("#cerca"), chips = $("#chips"), esito = $("#esito");
   const scelte = new Set();
-  studi.innerHTML += D.studi.map((s, i) => `<option value="${i}">${s.nome}</option>`).join("");
   chips.innerHTML = D.competenze.map(c => `<button class="chip" type="button" aria-pressed="false" data-c="${c.id}">${c.nome}</button>`).join("");
-  studi.onchange = () => { scelte.clear(); if (studi.value !== "") D.studi[studi.value].competenze.forEach(c => scelte.add(c)); aggiorna(); };
-  chips.onclick = e => { const b = e.target.closest(".chip"); if (!b) return; scelte.has(b.dataset.c) ? scelte.delete(b.dataset.c) : scelte.add(b.dataset.c); studi.value = ""; aggiorna(); };
+  chips.onclick = e => { const b = e.target.closest(".chip"); if (!b) return; scelte.has(b.dataset.c) ? scelte.delete(b.dataset.c) : scelte.add(b.dataset.c); aggiorna(); };
   cerca.oninput = aggiorna;
   function aggiorna() {
     chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", scelte.has(b.dataset.c)));
@@ -22,26 +20,15 @@ function offerte() {
       <article class="offerta">
         <div class="logo">${p.logo ? `<img src="${p.logo}" alt="${p.ente}">` : `<span class="sigla">${breve(p.ente)}</span>`}</div>
         <div>
-          <h3><a href="${p.link}" class="apri">${p.titolo}</a></h3>
+          <h3><a href="${p.link}" target="_blank" rel="noopener">${p.titolo}</a></h3>
           <div class="meta">${breve(p.ente)} · ${p.luogo} · ${p.tipo}</div>
           <div>${p.competenze.map(c => `<span class="tag${scelte.has(c) ? " si" : ""}">${nomeComp[c]}</span>`).join("")}</div>
         </div>
-        <a class="pulsante apri" href="${p.link}">Candidati</a>
+        <a class="pulsante" href="${p.link}" target="_blank" rel="noopener">Candidati</a>
       </article>`).join("") : `<p>Nessuna offerta con questi filtri. <a href="#" onclick="location.reload()">Mostra tutte</a></p>`;
-    esito.innerHTML = studi.value !== ""
-      ? `Studi ${D.studi[studi.value].nome.toLowerCase()}? <b>${pos.length} offerte</b> cercano quello che sai fare.`
-      : `<b>${pos.length} offerte</b> aperte${scelte.size ? " per le competenze scelte" : ""}.`;
+    esito.innerHTML = `<b>${pos.length} offerte</b> ${scelte.size ? "cercano quello che sai fare" : "aperte"}.`;
   }
   aggiorna();
-  // conferma del requisito prima di aprire l'annuncio
-  const box = $("#conferma"), check = $("#conferma-check"), vai = $("#conferma-vai");
-  lista.addEventListener("click", e => {
-    const a = e.target.closest("a.apri"); if (!a) return;
-    e.preventDefault(); vai.href = a.href; check.checked = false; vai.setAttribute("aria-disabled", "true"); box.classList.add("aperta");
-  });
-  check.onchange = () => vai.setAttribute("aria-disabled", String(!check.checked));
-  vai.onclick = () => setTimeout(() => box.classList.remove("aperta"), 100);
-  $("#conferma-annulla").onclick = () => box.classList.remove("aperta");
 }
 
 // ---- Storie in evidenza ----
