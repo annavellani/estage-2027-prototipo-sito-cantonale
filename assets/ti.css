@@ -1,0 +1,135 @@
+/* Prototipo dimostrativo non ufficiale: la pagina Estage di OltreconfiniTi con una gerarchia visiva nuova.
+   Colori e tipografia ripresi dal sito ti.ch (arancione #F04B00, menu #EEEEEE, attivo #CC3333, link #0072AC). */
+:root {
+  --arancio: #F04B00; --grigio-menu: #EEEEEE; --attivo: #CC3333; --link: #0072AC;
+  --testo: #333333; --muto: #6E6E6E; --filo: #DBDBDB; --chiaro: #F6F6F6; --azzurrino: #DFECF9;
+  --cond: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --base: "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--base); color: var(--testo); background: #fff; font-size: 16px; line-height: 1.55; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+.contenitore { width: min(960px, calc(100% - 32px)); margin: 0 auto; }
+
+/* Avviso prototipo */
+.avviso { background: #1E1E1E; color: #fff; font-size: 13px; text-align: center; padding: 7px 16px; }
+.avviso b { color: #FFB38A; }
+
+/* Testata come ti.ch (senza stemma ufficiale) */
+.testata-cantone { border-bottom: 1px solid var(--filo); background: #fff; }
+.testata-cantone .contenitore { display: flex; align-items: stretch; justify-content: space-between; height: 50px; }
+.stemma { display: flex; align-items: center; gap: 12px; padding-right: 18px; border-right: 1px solid var(--filo); font-size: 15px; color: #838383; }
+.stemma .segnaposto-logo { width: 54px; height: 32px; border: 1px dashed #BBB; border-radius: 4px; font-size: 9px; line-height: 1.1; display: grid; place-items: center; text-align: center; color: #999; }
+.strumenti { display: flex; align-items: center; gap: 18px; font-size: 14px; color: #838383; }
+.barra-servizio { background: var(--arancio); }
+.barra-servizio .contenitore { height: 56px; display: flex; align-items: center; }
+.barra-servizio a { color: #fff; font-family: var(--cond); font-weight: 700; font-size: 19px; letter-spacing: .01em; }
+.menu-principale { background: var(--grigio-menu); }
+.menu-principale .contenitore { display: flex; flex-wrap: wrap; }
+.menu-principale a { font-family: var(--cond); font-weight: 700; text-transform: uppercase; font-size: 15px; color: var(--link); padding: 22px 15px; border-right: 1px solid #fff; }
+.menu-principale a.attivo { background: #fff; color: var(--attivo); box-shadow: inset 0 3px 0 var(--arancio); }
+
+/* Corpo: colonna laterale + contenuto, come ti.ch */
+.corpo { display: grid; grid-template-columns: 220px 1fr; gap: 28px; margin: 34px auto 60px; }
+.laterale { border-top: 2px solid #333; align-self: start; font-size: 14px; }
+.laterale a { display: block; padding: 8px 8px; border-bottom: 1px solid var(--filo); color: var(--link); }
+.laterale a.attivo { color: var(--attivo); font-weight: 700; }
+.laterale details summary { padding: 8px; border-bottom: 1px solid var(--filo); cursor: pointer; color: var(--link); list-style: none; }
+.laterale details summary::after { content: " ▾"; color: var(--muto); }
+.laterale details a { padding-left: 20px; font-size: 13px; }
+.laterale .contatto { margin-top: 18px; background: var(--chiaro); padding: 14px; font-size: 13px; line-height: 1.5; }
+.laterale .contatto h4 { margin: 0 0 6px; font-family: var(--cond); font-size: 17px; }
+
+/* Titoli */
+h1, h2, h3 { font-family: var(--cond); font-weight: 700; color: var(--testo); line-height: 1.15; margin: 0; }
+h1 { font-size: 36px; }
+h2 { font-size: 26px; margin: 40px 0 14px; }
+h3 { font-size: 19px; }
+.sopratitolo { font-family: var(--cond); font-weight: 700; color: var(--arancio); text-transform: uppercase; font-size: 14px; letter-spacing: .04em; }
+.introduzione { font-size: 19px; color: #444; margin: 10px 0 0; max-width: 640px; }
+
+/* Blocco ricerca (prima cosa che si vede) */
+.ricerca { background: var(--azzurrino); padding: 22px; margin-top: 22px; }
+.ricerca .riga { display: grid; grid-template-columns: 1fr 240px; gap: 10px; }
+.ricerca input, .ricerca select { font: inherit; font-size: 16px; padding: 11px 12px; border: 1px solid #B9C7D6; background: #fff; border-radius: 2px; min-width: 0; }
+.ricerca .etich { font-family: var(--cond); font-weight: 700; font-size: 15px; margin: 14px 0 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: 14px; padding: 6px 12px; border: 1px solid var(--link); color: var(--link); background: #fff; border-radius: 2px; cursor: pointer; min-height: 36px; }
+.chip[aria-pressed="true"] { background: var(--link); color: #fff; }
+.esito { margin: 14px 0 0; font-size: 15px; }
+.esito b { color: var(--attivo); }
+
+/* Offerte */
+.offerte { display: grid; gap: 12px; margin-top: 18px; }
+.offerta { display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: center; border: 1px solid var(--filo); border-left: 4px solid var(--arancio); padding: 14px 16px; background: #fff; }
+.offerta .logo { height: 42px; display: flex; align-items: center; }
+.offerta .logo img { max-height: 40px; max-width: 86px; object-fit: contain; }
+.offerta .sigla { font-family: var(--cond); font-weight: 700; color: var(--muto); font-size: 14px; }
+.offerta h3 a { color: var(--testo); }
+.offerta .meta { color: var(--muto); font-size: 14px; }
+.offerta .tag { display: inline-block; font-size: 12px; background: var(--chiaro); padding: 2px 8px; margin: 4px 4px 0 0; }
+.offerta .tag.si { background: var(--link); color: #fff; }
+.pulsante { display: inline-block; background: var(--arancio); color: #fff !important; font-family: var(--cond); font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 2px; text-decoration: none !important; white-space: nowrap; border: 0; cursor: pointer; }
+.pulsante:hover { background: #D44200; }
+.pulsante.secondario { background: #fff; color: var(--link) !important; border: 1px solid var(--link); }
+
+/* Passi e cifre */
+.tre { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tre div { background: var(--chiaro); padding: 18px; border-top: 3px solid var(--arancio); }
+.tre b { font-family: var(--cond); font-size: 30px; color: var(--arancio); display: block; line-height: 1; }
+.cifre { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.cifre div { border-left: 3px solid var(--arancio); padding-left: 12px; }
+.cifre b { font-family: var(--cond); font-size: 32px; display: block; line-height: 1.05; }
+.cifre span { font-size: 14px; color: var(--muto); }
+
+/* Storie */
+.storie-evidenza { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.storia { border: 1px solid var(--filo); background: #fff; display: flex; flex-direction: column; }
+.storia img { aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 20%; }
+.storia .testo { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.storia blockquote { margin: 0; font-style: italic; color: #555; border-left: 3px solid var(--arancio); padding-left: 10px; font-size: 14px; }
+.storia .chi { font-size: 13px; color: var(--muto); }
+.elenco-storie { columns: 2; column-gap: 28px; font-size: 14px; margin-top: 10px; }
+.elenco-storie a { display: block; break-inside: avoid; padding: 6px 0; border-bottom: 1px solid var(--filo); }
+
+/* FAQ */
+details.faq { border-bottom: 1px solid var(--filo); }
+details.faq summary { cursor: pointer; padding: 12px 0; font-family: var(--cond); font-weight: 700; font-size: 18px; color: var(--link); list-style: none; }
+details.faq summary::before { content: "+ "; color: var(--arancio); }
+details.faq[open] summary::before { content: "– "; }
+details.faq p { margin: 0 0 14px; }
+
+/* Modulo */
+.modulo { display: grid; gap: 14px; background: var(--chiaro); padding: 22px; }
+.modulo .due { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.modulo label { display: grid; gap: 4px; font-size: 14px; font-weight: 700; }
+.modulo input, .modulo select, .modulo textarea { font: inherit; font-weight: 400; font-size: 16px; padding: 10px; border: 1px solid #C9C9C9; background: #fff; border-radius: 2px; }
+.modulo .errore { border-color: var(--attivo); }
+.chip-check { display: inline-flex; }
+.chip-check input { position: absolute; opacity: 0; }
+.chip-check span { font-size: 14px; padding: 6px 12px; border: 1px solid var(--link); color: var(--link); background: #fff; cursor: pointer; }
+.chip-check input:checked + span { background: var(--link); color: #fff; }
+.nota-invio { font-size: 14px; }
+.nota-invio.ok { color: #2E7D32; font-weight: 700; }
+
+/* Conferma requisito */
+.conferma { position: fixed; inset: 0; background: #0008; display: none; place-items: center; z-index: 50; padding: 16px; }
+.conferma.aperta { display: grid; }
+.conferma .box { background: #fff; max-width: 460px; width: 100%; padding: 24px; border-top: 4px solid var(--arancio); }
+.conferma label { display: flex; gap: 10px; margin: 14px 0; }
+.conferma .pulsante[aria-disabled="true"] { background: #BBB; pointer-events: none; }
+
+.piede-cantone { background: #4D4D4D; color: #ddd; font-size: 13px; padding: 26px 0; }
+.piede-cantone a { color: #fff; }
+
+@media (max-width: 760px) {
+  .corpo { grid-template-columns: 1fr; }
+  .laterale { order: 2; }
+  .menu-principale a { padding: 12px 10px; font-size: 13px; }
+  .ricerca .riga, .modulo .due, .tre, .cifre, .storie-evidenza { grid-template-columns: 1fr; }
+  .offerta { grid-template-columns: 1fr; }
+  .elenco-storie { columns: 1; }
+  .strumenti span.nascondi { display: none; }
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Estage · Prototipo Estage (non ufficiale)</title>
+<link rel="stylesheet" href="assets/ti.css">
+</head>
+<body>
+<div class="avviso"><b>Prototipo dimostrativo non ufficiale</b> di Anna Vellani: come potrebbe essere la pagina Estage con una gerarchia visiva nuova. Non è un sito del Cantone Ticino.</div>
+<header>
+  <div class="testata-cantone"><div class="contenitore">
+    <div class="stemma"><span class="segnaposto-logo">logo<br>Cantone</span>Repubblica e Cantone Ticino</div>
+    <div class="strumenti"><span class="nascondi">www.ti.ch/oltreconfiniti</span><span>IT</span><span>EN</span></div>
+  </div></div>
+  <div class="barra-servizio"><div class="contenitore"><a href="index.html">OltreconfiniTI</a></div></div>
+  <nav class="menu-principale"><div class="contenitore"><a href="https://www4.ti.ch/can/oltreconfiniti/home" class="" target=_blank rel=noopener>HOME</a><a href="https://www4.ti.ch/can/oltreconfiniti/chi-siamo/il-progetto-oltreconfiniti" class="" target=_blank rel=noopener>CHI SIAMO</a><a href="https://www4.ti.ch/can/oltreconfiniti/dalle-origini-al-1900/storia-dellemigrazione-ticinese" class="" target=_blank rel=noopener>DALLE ORIGINI AL 1900</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1900-al-1990/storia-dellemigrazione-ticinese" class="" target=_blank rel=noopener>DAL 1900 AL 1990</a><a href="index.html" class="attivo">ESTAGE</a><a href="https://www4.ti.ch/can/oltreconfiniti/il-social-network/benvenuti-su-swisscommunity" class="" target=_blank rel=noopener>IL SOCIAL NETWORK</a></div></nav>
+</header>
+<div class="contenitore corpo">
+  <aside class="laterale"><a href="index.html" class="attivo">Estage · offerte 2026</a><a href="aziende.html" class="">Offri uno stage</a><a href="storie.html" class="">Interviste a chi è tornato</a><a href="progetto.html" class="">Il progetto nel dettaglio</a><details><summary>Archivio edizioni</summary><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2026" target="_blank" rel="noopener">Edizione 2026</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2025" target="_blank" rel="noopener">Edizione 2025</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2024" target="_blank" rel="noopener">Edizione 2024</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2023" target="_blank" rel="noopener">Edizione 2023</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2022" target="_blank" rel="noopener">Edizione 2022</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2021" target="_blank" rel="noopener">Edizione 2021</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2020" target="_blank" rel="noopener">Edizione 2020</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2019" target="_blank" rel="noopener">Edizione 2019</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2018" target="_blank" rel="noopener">Edizione 2018</a><a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/estage/edizione-2017" target="_blank" rel="noopener">Edizione 2017</a></details>
+      <a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/la-newsletter-di-oltreconfiniti" target="_blank" rel="noopener">La newsletter di OltreconfiniTi</a>
+      <a href="https://www4.ti.ch/can/oltreconfiniti/dal-1990-a-oggi/per-chi-vuol-far-ritorno-a-casa" target="_blank" rel="noopener">Per chi vuol far ritorno a casa</a>
+      <div class="contatto"><h4>Contattaci</h4>Cerchi un Estage, offri un Estage o hai domande?<br><a href="mailto:oltreconfiniti@ti.ch">oltreconfiniti@ti.ch</a><br>091 814 30 27</div></aside>
+  <main>
+
+    <p class="sopratitolo">Estage 2026 · stage pagati in Ticino</p>
+    <h1>Trova il tuo stage in Ticino</h1>
+    <p class="introduzione">Per chi ha ottenuto la maturità in Ticino e studia fuori Cantone o all'estero. Tutti gli stage sono retribuiti.</p>
+
+    <section class="ricerca" aria-label="Cerca le offerte">
+      <div class="riga">
+        <input id="cerca" type="search" placeholder="Cerca per azienda, ruolo o luogo" aria-label="Cerca">
+        <select id="studi" aria-label="Cosa studi"><option value="">Cosa studi?</option></select>
+      </div>
+      <div class="etich">Cosa sai fare?</div>
+      <div class="chips" id="chips"></div>
+      <p class="esito" id="esito"></p>
+    </section>
+
+    <div class="offerte" id="offerte"></div>
+
+    <h2>Come funziona</h2>
+    <div class="tre">
+      <div><b>1</b><strong>Scegli un'offerta</strong><br>Cerca per quello che sai fare.</div>
+      <div><b>2</b><strong>Candidati all'azienda</strong><br>La candidatura va direttamente al datore di lavoro.</div>
+      <div><b>3</b><strong>Fai il tuo stage</strong><br>Retribuito, con un mentore e un certificato finale.</div>
+    </div>
+
+    <h2>Chi è tornato</h2>
+    <div class="storie-evidenza" id="storie-evidenza"></div>
+    <p style="margin-top:14px"><a href="storie.html">Tutte le interviste →</a></p>
+
+    <h2>Estage in cifre</h2>
+    <div class="cifre">
+      <div><b>2017</b><span>prima edizione, nata da una domanda dell'Associazione studenti ticinesi a Zurigo</span></div>
+      <div><b>~700</b><span>bandi pubblicati in nove edizioni (2017–2025)</span></div>
+      <div><b>63</b><span>aziende e servizi nell'edizione 2026</span></div>
+    </div>
+
+    <div style="margin-top:34px;padding:20px;background:#F6F6F6;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <div><h3>Sei un'azienda?</h3>Offri uno stage a chi studia fuori Cantone.</div>
+      <a class="pulsante" href="aziende.html">Offri uno stage</a>
+    </div>
+
+    <div class="conferma" id="conferma" role="dialog" aria-modal="true">
+      <div class="box">
+        <h3>Prima di candidarti</h3>
+        <label><input type="checkbox" id="conferma-check"> Ho ottenuto la maturità in Ticino e studio fuori Cantone o all'estero.</label>
+        <a class="pulsante" id="conferma-vai" href="#" target="_blank" rel="noopener" aria-disabled="true">Vai all'annuncio</a>
+        <button class="pulsante secondario" type="button" id="conferma-annulla">Annulla</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+<footer class="piede-cantone"><div class="contenitore">Prototipo dimostrativo realizzato da Anna Vellani per un colloquio. Contenuti tratti dalle pagine pubbliche di OltreconfiniTi ed Estage (www.ti.ch/oltreconfiniti), novembre 2026.</div></footer>
+<script src="assets/dati.js"></script><script src="assets/ti.js"></script>
+</body>
+</html>
