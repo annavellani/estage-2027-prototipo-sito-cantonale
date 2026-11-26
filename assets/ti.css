@@ -156,3 +156,11 @@ details.faq p { margin: 0 0 14px; }
   .metriche { grid-template-columns: repeat(2, auto); gap: 12px 24px; }
   .metriche b { font-size: 24px; }
 }
+
+/* Menu Estage sempre visibile: fisso in cima mentre si scorre (telefono) e colonna laterale fissa (computer) */
+@media (min-width: 761px) { .laterale { position: sticky; top: 16px; } }
+@media (max-width: 760px) {
+  .apri-menu-estage { position: sticky; top: 0; z-index: 20; margin: 0 0 0; box-shadow: 0 2px 6px #0000001a; }
+  .laterale.aperto { position: sticky; top: 50px; z-index: 19; max-height: calc(100vh - 60px); overflow-y: auto; box-shadow: 0 6px 14px #00000022; }
+  .corpo > main { padding-top: 16px; }
+}
