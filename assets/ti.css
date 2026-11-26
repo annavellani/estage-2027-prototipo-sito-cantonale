@@ -126,10 +126,32 @@ details.faq p { margin: 0 0 14px; }
 
 @media (max-width: 760px) {
   .corpo { grid-template-columns: 1fr; }
-  .laterale { order: 2; }
   .menu-principale a { padding: 12px 10px; font-size: 13px; }
   .ricerca .riga, .modulo .due, .tre, .cifre, .storie-evidenza { grid-template-columns: 1fr; }
   .offerta { grid-template-columns: 1fr; }
   .elenco-storie { columns: 1; }
   .strumenti span.nascondi { display: none; }
+}
+
+/* Metriche compatte sopra il titolo */
+.metriche { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--muto); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--filo); }
+.metriche b { font-family: var(--cond); font-size: 20px; color: var(--arancio); margin-right: 4px; }
+
+/* Menu Estage: su computer la colonna laterale; su telefono un menu a scomparsa in cima */
+.apri-menu-estage { display: none; }
+@media (max-width: 760px) {
+  .corpo { margin-top: 0; gap: 0; }
+  .laterale { order: 0 !important; display: none; border-top: 0; margin: 0 0 18px; background: #fff; }
+  .laterale.aperto { display: block; }
+  .apri-menu-estage { display: flex; align-items: center; gap: 12px; width: 100%; margin: 14px 0; padding: 12px 14px; background: var(--grigio-menu);
+    border: 0; border-left: 4px solid var(--arancio); font-family: var(--cond); font-weight: 700; font-size: 17px; color: var(--testo); cursor: pointer; text-align: left; }
+  .lineette, .lineette::before, .lineette::after { display: block; width: 20px; height: 2px; background: var(--testo); position: relative; transition: transform .2s; }
+  .lineette::before, .lineette::after { content: ""; position: absolute; left: 0; }
+  .lineette::before { top: -6px; } .lineette::after { top: 6px; }
+  .apri-menu-estage[aria-expanded="true"] .lineette { background: transparent; }
+  .apri-menu-estage[aria-expanded="true"] .lineette::before { transform: translateY(6px) rotate(45deg); }
+  .apri-menu-estage[aria-expanded="true"] .lineette::after { transform: translateY(-6px) rotate(-45deg); }
+  .laterale .contatto { display: none; }
+  .metriche { gap: 4px 12px; font-size: 13px; }
+  .metriche b { font-size: 17px; }
 }

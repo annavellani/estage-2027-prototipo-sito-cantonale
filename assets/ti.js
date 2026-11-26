@@ -26,6 +26,7 @@ function offerte() {
         </div>
         <a class="pulsante" href="${p.link}" target="_blank" rel="noopener">Candidati</a>
       </article>`).join("") : `<p>Nessuna offerta con questi filtri. <a href="#" onclick="location.reload()">Mostra tutte</a></p>`;
+    const mo = document.getElementById("m-offerte"); if (mo && !scelte.size && !q) mo.textContent = pos.length;
     esito.innerHTML = `<b>${pos.length} offerte</b> ${scelte.size ? "cercano quello che sai fare" : "aperte"}.`;
   }
   aggiorna();
@@ -62,4 +63,11 @@ function modulo() {
   };
 }
 
-offerte(); storie(); modulo();
+// Menu Estage a scomparsa (telefono)
+function menuEstage() {
+  const b = document.querySelector(".apri-menu-estage"), m = document.getElementById("menu-estage");
+  if (!b || !m) return;
+  b.onclick = () => { const aperto = !m.classList.contains("aperto"); m.classList.toggle("aperto", aperto); b.setAttribute("aria-expanded", aperto); };
+}
+
+offerte(); storie(); modulo(); menuEstage();
